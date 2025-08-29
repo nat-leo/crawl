@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crawl"
+version = "0.1.0"
+description = "Web Analysis"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests",
+    "warcio"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}           # src layout
+
+[tool.setuptools.packages.find]
+where = ["src"]                      # find packages under src
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+pythonpath = []                      # keep clean; rely on editable install
